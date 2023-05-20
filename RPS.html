@@ -9,55 +9,65 @@
 <body>
     <script>
 
-const choice1 = "rock";
-const choice2 = "paper";
-const choice3 = "scissors";
-const choice = ["rock", "paper", "scissors"];
+let playerScore = 0
+let computerScore = 0
+let roundWinner = ""       
+
+const choice = ["Rock", "Paper", "Scissors"];
 
 function getComputerChoice (choice) {
-    return choice[Math.floor(Math.random()*choice.length)];;
+   return choice[Math.floor(Math.random()*choice.length)];
 }
 
 console.log (getComputerChoice (choice)) 
 
+const computerSelection = getComputerChoice(choice);
+const playerSelection = prompt ("Rock, Paper, Scissors!");
 
- // function playRound (playerSelection, computerSelection) {
- //  if (playerSelection.toLowercase()===rock, computerSelection.toLowerCase()===paper) {
- //     alert = "You lost to paper!";
- //  } else if ((playerSelection.toLowercase()===rock, computerSelection.toLowerCase()===rock))
- //     alert = "Its a tie!"
- //  else {
- //     alert = "You smashed scissors"
- //  }
- // }
+// funkcija za capitalize
 
- function playRound2 (playerSelection, computerSelection) {
-   switch (playerSelection, computerSelection) {
-      case "tie" : if (playerSelection === computerSelection);
-      return 0
-      break;
+function capitalize (playerSelection) {
+   return playerSelection.charAt[0].toUpperCase() + playerSelection.slice(1).toLowerCase();
+}
 
-      case "win" : if (playerSelection.toLowerCase() === "rock" && computerSelection.toLowerCase() === "scissors");
-      else if (playerSelection.toLowerCase() === "scissor" && computerSelection.toLowerCase() === "paper");
-      else if (playerSelection.toLowerCase() === "paper" && computerSelection.toLowerCase() === "rock");
-      return playerScore += playerscore + 1;
-      break;
+//ROUND FUNKCIJA
 
-      case "lose" : if (playerSelection.toLowerCase() === "rock" && computerSelection.toLowerCase() === "paper");
-      else if (playerSelection.toLowerCase() === "scissor" && computerSelection.toLowerCase() === "rock");
-      else if (playerSelection.toLowerCase() === "paper" && computerSelection.toLowerCase() === "scissor");
-      return computerScore += computerScore + 1;
-      break;
-   }}
+function playRound(playerSelection, computerSelection) {
+  if (playerSelection === computerSelection) {
+    roundWinner = "tie"
+  }
+  if (
+    (playerSelection === "Rock" && computerSelection === "Scissors") ||
+    (playerSelection === "Scissors" && computerSelection === "Paper") ||
+    (playerSelection === "Paper" && computerSelection === "Rock")
+  ) {
+    playerScore++
+    roundWinner = "player"
+  }
+  if (
+    (computerSelection === 'Rock' && playerSelection === 'Scissors') ||
+    (computerSelection === 'Scissors' && playerSelection === 'Paper') ||
+    (computerSelection === 'Paper' && playerSelection === 'Rock')
+  ) {
+    computerScore++
+    roundWinner = "computer"
+  }
+}
 
+function roundEnd (roundWinner) {
+   if ( roundWinner === "tie") {
+      alert = "It is a tie!"
+   }
+   else if ( roundWinner === "player") {
+      alert ="You have won this round!"
+   }
+   else if ( roundWinner === "computer") {
+      alert ="You have lost this round!"
+   }
+}
 
-let playerScore = 0
-let computerscore = 0  
+console.log(playRound(playerSelection, computerSelection));
 
-const playerSelection = prompt ("Rock, paper, scissors!");
-
-
-const computerSelection = getComputerChoice();
 
    </script>
 </body>
