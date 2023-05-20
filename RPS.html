@@ -9,10 +9,10 @@
 <body>
     <script>
 
-const choice1 = "Rock";
-const choice2 = "Paper";
-const choice3 = "Scissors";
-const choice = ["Rock", "Paper", "Scissors"];
+const choice1 = "rock";
+const choice2 = "paper";
+const choice3 = "scissors";
+const choice = ["rock", "paper", "scissors"];
 
 function getComputerChoice (choice) {
     return choice[Math.floor(Math.random()*choice.length)];;
@@ -21,15 +21,39 @@ function getComputerChoice (choice) {
 console.log (getComputerChoice (choice)) 
 
 
-function playRound (playerSelection, computerSelection) {
- if (playerSelection.toLowercase()===rock, computerSelection.toLowerCase()===paper) {
-    alert = "You lost to paper!";
- } else if ((playerSelection.toLowercase()===rock, computerSelection.toLowerCase()===rock))
-    alert = "Its a tie!"
- else {
-    alert = "You smashed scissors"
- }
-}
+ // function playRound (playerSelection, computerSelection) {
+ //  if (playerSelection.toLowercase()===rock, computerSelection.toLowerCase()===paper) {
+ //     alert = "You lost to paper!";
+ //  } else if ((playerSelection.toLowercase()===rock, computerSelection.toLowerCase()===rock))
+ //     alert = "Its a tie!"
+ //  else {
+ //     alert = "You smashed scissors"
+ //  }
+ // }
+
+ function playRound2 (playerSelection, computerSelection) {
+   switch (playerSelection, computerSelection) {
+      case "tie" : if (playerSelection === computerSelection);
+      return 0
+      break;
+
+      case "win" : if (playerSelection.toLowerCase() === "rock" && computerSelection.toLowerCase() === "scissors");
+      else if (playerSelection.toLowerCase() === "scissor" && computerSelection.toLowerCase() === "paper");
+      else if (playerSelection.toLowerCase() === "paper" && computerSelection.toLowerCase() === "rock");
+      return playerScore += playerscore + 1;
+      break;
+
+      case "lose" : if (playerSelection.toLowerCase() === "rock" && computerSelection.toLowerCase() === "paper");
+      else if (playerSelection.toLowerCase() === "scissor" && computerSelection.toLowerCase() === "rock");
+      else if (playerSelection.toLowerCase() === "paper" && computerSelection.toLowerCase() === "scissor");
+      return computerScore += computerScore + 1;
+      break;
+   }}
+
+
+let playerScore = 0
+let computerscore = 0  
+
 const playerSelection = prompt ("Rock, paper, scissors!");
 
 
