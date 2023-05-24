@@ -11,10 +11,11 @@
 
          // Base values
 
+         
          let playerScore = 0
          let computerScore = 0
-         let roundCount = 1
          let roundWinner = ""
+         const scores = {computerScore: 0, playerScore: 0}
          
          const choice = ["Rock", "Paper", "Scissors"];
 
@@ -70,16 +71,14 @@
           return roundWinner
          }
 
-         // Two individual functions for computer and player scores
+         // GAME FUNCTION
 
-         function pScore (roundWinner) {
-          if (roundWinner == 1)
-            return playerScore++
-         }
-
-         function cScore (roundWinner) {
-          if (roundWinner == -1)
-          return computerScore ++
+         function game() {
+          playRound();scoreText();
+          playRound();scoreText();
+          playRound();scoreText();
+          playRound();scoreText();
+          playRound();scoreText()
          }
 
          //console.log corner
@@ -88,7 +87,8 @@
           console.log(computerSelection)
           console.log(playRound(playerSelection,computerSelection))
           console.log(scoreText(roundWinner))
-
+          console.log(game(playRound))
+       
    </script>
 </body>
 </html>
