@@ -9,62 +9,74 @@
 <body>
     <script>
 
+         // Base values
+
          let playerScore = 0
          let computerScore = 0
-         let roundWinner = "" 
-         
+         let roundCount = 1
+         let roundWinner = ""
          
          const choice = ["Rock", "Paper", "Scissors"];
+
+         //getComputerChoice - function that picks rock,paper,scissors at random
 
          function getComputerChoice (choice) {
             return choice[Math.floor(Math.random()*choice.length)];
          }
-
-         console.log (getComputerChoice (choice)) 
-
          const computerSelection = getComputerChoice(choice);
-
-         console.log (computerSelection)
-
          const playerSelection = prompt ("Rock, Paper, Scissors!");
 
+         //playRound - function that handles a single round of RPS
 
-         //ROUND FUNKCIJA
          function playRound(playerSelection,computerSelection) {
             playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
            if (playerSelection === computerSelection) {
-             roundWinner = "its a tie"
+             roundWinner =  0
            }
-           if (
+           else if (
              (playerSelection == "Rock" && computerSelection == "Scissors") ||
              (playerSelection == "Scissors" && computerSelection == "Paper") ||
              (playerSelection == "Paper" && computerSelection == "Rock")
            ) {
-             playerScore++
-             roundWinner = "Player. You Won!"
+             roundWinner = 1
            }
-           if (
+           else if (
              (computerSelection == 'Rock' && playerSelection == 'Scissors') ||
              (computerSelection == 'Scissors' && playerSelection == 'Paper') ||
              (computerSelection == 'Paper' && playerSelection == 'Rock')
            ) {
-             computerScore++
-             roundWinner = "Computer won! You lost this round"
+             roundWinner =  -1
+           }
+           else {
+            roundWinner = "You misspelled!!"
            }
            return roundWinner
-           return computerScore
-           return playerScore
-
          }
-         //ROUND FUNKCIJA
 
-         
+         //score - function that scoring text
 
-      
+         function score (roundWinner) {
+          if 
+            (roundWinner == 0) {
+              return "Its a tie!!!";
+            }
+          else if 
+            (roundWinner == 1) {
+              return "Player. You Won!";
+            }
+          else if (roundWinner == -1) {
+              return "Computer won! You lost this round";
+          }
+          return roundWinner
+         }
 
-         console.log(playRound(playerSelection, computerSelection));
+         //console.log corner
 
-
+          console.log(playerSelection)
+          console.log(computerSelection)
+          console.log(playRound(playerSelection,computerSelection))
+          console.log(score(roundWinner))
+          
    </script>
 </body>
 </html>
