@@ -55,7 +55,7 @@
 
          //score - function that scoring text
 
-         function score (roundWinner) {
+         function scoreText (roundWinner) {
           if 
             (roundWinner == 0) {
               return "Its a tie!!!";
@@ -70,13 +70,25 @@
           return roundWinner
          }
 
+         // Two individual functions for computer and player scores
+
+         function pScore (roundWinner) {
+          if (roundWinner == 1)
+            return playerScore++
+         }
+
+         function cScore (roundWinner) {
+          if (roundWinner = -1)
+          return computerScore ++
+         }
+
          //console.log corner
 
           console.log(playerSelection)
           console.log(computerSelection)
           console.log(playRound(playerSelection,computerSelection))
-          console.log(score(roundWinner))
-          
+          console.log(scoreText(roundWinner))
+
    </script>
 </body>
 </html>
