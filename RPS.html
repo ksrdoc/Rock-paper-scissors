@@ -15,12 +15,13 @@
 
          //getComputerChoice - function that picks rock,paper,scissors at random
 
-         function getComputerChoice (choice) {
-            return choice[Math.floor(Math.random()*choice.length)];
+         function getComputerChoice () {
+            const compChoice = choice[Math.floor(Math.random()*choice.length)];
+            return compChoice;
          }
 
          const computerSelection = getComputerChoice(choice);
-         console.log(computerSelection)
+
          //getPlayerChoice - get the player choice from choice array 
 
          function getPlayerChoice () {
@@ -33,13 +34,13 @@
             const playerSelectionCase =playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase(); //case insensitive
             if (choice.includes(playerSelectionCase)){
               validatedInput = true;
-              return playerSelectionCase
+              return playerSelectionCase;
              }
             }
           }
 
           const playerSelection = getPlayerChoice();
-          console.log(playerSelection)
+
 
          //playRound - function that handles a single round of RPS
 
@@ -61,9 +62,6 @@
            ) {
              return -1;
            }
-           else {
-            return "You misspelled!";
-           }
          }
          
 
@@ -83,18 +81,23 @@
           }
          }
 
+         //game function
+
          function game () {
           let playerScore = 0; 
           let computerScore = 0;
+          const playerSelection = getPlayerChoice();
+          const computerSelection = getComputerChoice();
           console.log ("Get ready!")
           for (let i = 0; i < 5; i++) {
-            playRound(playerSelection. computerSelection)
+            playRound(playerSelection, computerSelection)
             console.log(playRound(playerSelection,computerSelection));
-            console.log("----------------")
-            if (checkWinner(playerSelection,computerSelection) == 1) {
+            console.log(checkWinner(playerSelection,computerSelection));
+            console.log("----------------");
+            if (checkWinner(playerSelection,computerSelection) == `You Won! ${playerSelection} beats ${computerSelection}!`) {
               playerScore++;
             }
-            else if (checkWinner(playerSelection,computerSelection) == -1){
+            else if (checkWinner(playerSelection,computerSelection) == `You lost! ${computerSelection} beats ${playerSelection}!`){
               computerScore++;
             }
           }
@@ -106,21 +109,12 @@
             console.log ("Computer wins!");
           }
           else {
-            console.log ("Its a tie");
+            console.log ("Its a tie, nobody won!");
           }
          }
 
         game()
 
-         //console.log corner
-
-          
-          
-          console.log(playRound(playerSelection,computerSelection))
-          console.log(checkWinner(playerSelection,computerSelection))
-          
-          
-       
    </script>
 </body>
 </html>
