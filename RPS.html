@@ -20,63 +20,57 @@
             return compChoice;
          }
 
-         const computerSelection = getComputerChoice(choice);
-
          //getPlayerChoice - get the player choice from choice array 
 
          function getPlayerChoice () {
           let validatedInput = false; 
           while (validatedInput == false) { 
-            const playerSelection = prompt ("Rock, Paper, Scissors");
-            if (playerSelection == null){ //while the input is misspelled, ask again for input
+            const playerPrompt = prompt ("Rock, Paper, Scissors");
+            if (playerPrompt == null){ //while the input is misspelled, ask again for input
               continue;
             }
-            const playerSelectionCase =playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase(); //case insensitive
-            if (choice.includes(playerSelectionCase)){
+            const playerPromptCase =playerPrompt.charAt(0).toUpperCase() + playerPrompt.slice(1).toLowerCase(); //case insensitive
+            if (choice.includes(playerPromptCase)){
               validatedInput = true;
-              return playerSelectionCase;
+              return playerPromptCase;
              }
             }
-          }
-
-          const playerSelection = getPlayerChoice();
-
+           }
 
          //playRound - function that handles a single round of RPS
 
          function playRound(playerSelection,computerSelection) {
-           if (playerSelection === computerSelection) {
-             return 0;
+           if (playerSelection == computerSelection) {
+             return "tie";
            }
            else if (
              (playerSelection == "Rock" && computerSelection == "Scissors") ||
              (playerSelection == "Scissors" && computerSelection == "Paper") ||
              (playerSelection == "Paper" && computerSelection == "Rock")
            ) {
-             return 1;
+             return "player";
            }
            else if (
              (computerSelection == 'Rock' && playerSelection == 'Scissors') ||
              (computerSelection == 'Scissors' && playerSelection == 'Paper') ||
              (computerSelection == 'Paper' && playerSelection == 'Rock')
            ) {
-             return -1;
+             return "computer";
            }
          }
          
-
          //checkWinner - function that returns a string depending on the winning condition
 
          function checkWinner (playerSelection, computerSelection) {
           const result = playRound (playerSelection, computerSelection);
-          if (result == 0) {
+          if (result == "tie") {
               return "Its a tie!!!";
             }
           else if 
-            (result == 1) {
+            (result == "player") {
               return `You Won! ${playerSelection} beats ${computerSelection}!`;
             }
-          else if (result == -1) {
+          else if (result == "computer") {
               return `You lost! ${computerSelection} beats ${playerSelection}!`;
           }
          }
@@ -86,11 +80,11 @@
          function game () {
           let playerScore = 0; 
           let computerScore = 0;
-          const playerSelection = getPlayerChoice();
-          const computerSelection = getComputerChoice();
           console.log ("Get ready!")
           for (let i = 0; i < 5; i++) {
-            playRound(playerSelection, computerSelection)
+            const playerSelection = getPlayerChoice();
+            const computerSelection = getComputerChoice();
+            playRound(computerSelection, playerSelection)
             console.log(playRound(playerSelection,computerSelection));
             console.log(checkWinner(playerSelection,computerSelection));
             console.log("----------------");
@@ -101,6 +95,7 @@
               computerScore++;
             }
           }
+
           console.log ("Game over!")
           if (playerScore > computerScore){
             console.log ("Player wins!");
