@@ -1,0 +1,18 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    padding: 100px;
+    background-color: rgb(102, 0, 255);
+
+
+}
