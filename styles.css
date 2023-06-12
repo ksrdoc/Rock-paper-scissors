@@ -149,19 +149,19 @@ header {
     margin-bottom: 100px;
 }
 
-#playerRock {
+button#playerRock {
     background-color: gray;
     height: 150px;
     width: 150px;
 }
 
-#playerPaper {
+button#playerPaper {
     background-color: white;
     height: 150px;
     width: 150px;
 }
 
-#playerScissors {
+button#playerScissors {
     background-color: black;
     height: 150px;
     width: 150px;

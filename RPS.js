@@ -97,4 +97,19 @@
   }
  }
 
+ // DOM manipulaton
+
+ const playerC = document.querySelector ('#playerCount');
+ const computerC = document.querySelector ('#computerCount');
+ const roundResult = document.querySelector ('.roundResultText');
+ const playerChoiceImg = document.querySelector ('.playerChoiceImage');
+ const playerChoiceTxt = document.querySelector ('.playerChoiceText');
+ const computerChoiceImg = document.querySelector ('.computerChoiceImage');
+ const computerChoiceTxt = document.querySelector ('.computerChoiceText');
+ const playerRock = document.querySelector ('#playerRock');
+ const playerPaper = document.querySelector ('#playerPaper');
+ const playerScissors = document.querySelector ('#playerScissors');
+ 
+
+
 game()
