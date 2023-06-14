@@ -115,13 +115,13 @@ header {
     font-size: 24px;
 }
 
-.playerChoiceImage {
+/* .playerChoiceImage {
     display: flex;
     background-color: gray;
     border-radius: 4px;
     width: 200px;
     height: 200px;
-}
+} */
 
 .computerChoice {
     display: flex;
@@ -131,21 +131,22 @@ header {
     font-size: 24px;
 }
 
-.computerChoiceImage {
+/* .computerChoiceImage {
     display: flex;
     background-color: gray;
     height: 200px;
     width: 200px;
     border-radius: 4px;
-}
+} */
 
 .playerButtons {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    gap: 40px;
     align-items: center;
-    margin-left: 120px;
-    margin-right: 120px;
+    margin-left: 70px;
+    margin-right: 70px;
     margin-bottom: 100px;
 }
 
@@ -153,18 +154,27 @@ button#playerRock {
     background-color: gray;
     height: 150px;
     width: 150px;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+button#playerScissors {
+    background-color: brown;
+    height: 150px;
+    width: 150px;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 4px;
 }
 
 button#playerPaper {
     background-color: white;
     height: 150px;
     width: 150px;
-}
-
-button#playerScissors {
-    background-color: black;
-    height: 150px;
-    width: 150px;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 4px;
 }
 
 .gameDescription {
