@@ -11,20 +11,20 @@
 
  //getPlayerChoice - get the player choice from choice array 
 
- function getPlayerChoice () {
-  let validatedInput = false; 
-  while (validatedInput == false) { 
-    const playerPrompt = prompt ("Rock, Paper, Scissors");
-    if (playerPrompt == null){ //while the input is misspelled, ask again for input
-      continue;
-    }
-    const playerPromptCase =playerPrompt.charAt(0).toUpperCase() + playerPrompt.slice(1).toLowerCase(); //case insensitive
-    if (choice.includes(playerPromptCase)){
-      validatedInput = true;
-      return playerPromptCase;
-     }
-    }
-   }
+ // function getPlayerChoice () {
+ //  let validatedInput = false; 
+ //  while (validatedInput == false) { 
+ //    const playerPrompt = prompt ("Rock, Paper, Scissors");
+ //    if (playerPrompt == null){ //while the input is misspelled, ask again for input
+ //      continue;
+ //    }
+ //    const playerPromptCase =playerPrompt.charAt(0).toUpperCase() + playerPrompt.slice(1).toLowerCase(); //case insensitive
+ //    if (choice.includes(playerPromptCase)){
+ //      validatedInput = true;
+ //      return playerPromptCase;
+ //     }
+ //    }
+ //   }
 
  //playRound - function that handles a single round of RPS
 
@@ -109,19 +109,22 @@ let playerScoreJs = document.querySelector ('#playerCount');
 let computerScoreJs = document.querySelector ('#computerCount');
 let roundResult = document.querySelector ('.roundResultText');
 
+playerScoreJs == 0;
+computerScoreJs == 0;
+
 rockBtn.addEventListener('click', function() {
   const computerSelection = getComputerChoice();
-  const playerSelection = "Rock";
+  const playerSelection = 'Rock';
   playRound (playerSelection, computerSelection);
-  checkWinner (playerSelection, computerSelection);
+
 
   if (checkWinner(playerSelection,computerSelection) == `You Won! ${playerSelection} beats ${computerSelection}!`) {
     playerScoreJs++;
-    roundResult =  `You Won! ${playerSelection} beats ${computerSelection}!`
+    roundResult.innerText =  `You Won! ${playerSelection} beats ${computerSelection}!`
   }
   else if (checkWinner(playerSelection,computerSelection) == `You lost! ${computerSelection} beats ${playerSelection}!`){
     computerScoreJs++;
-    roundResult = `You Won! ${playerSelection} beats ${computerSelection}!`
+    roundResult.innerText = `You lost! ${playerSelection} beats ${computerSelection}!`
   }
 })
 
@@ -129,15 +132,15 @@ paperBtn.addEventListener('click', function() {
   const computerSelection = getComputerChoice();
   const playerSelection = "Paper";
   playRound (playerSelection, computerSelection);
-  checkWinner (playerSelection, computerSelection);
+  
 
   if (checkWinner(playerSelection,computerSelection) == `You Won! ${playerSelection} beats ${computerSelection}!`) {
     playerScoreJs++;
-    roundResult =  `You Won! ${playerSelection} beats ${computerSelection}!`
+    roundResult.innerText =  `You Won! ${playerSelection} beats ${computerSelection}!`
   }
   else if (checkWinner(playerSelection,computerSelection) == `You lost! ${computerSelection} beats ${playerSelection}!`){
     computerScoreJs++;
-    roundResult = `You Won! ${playerSelection} beats ${computerSelection}!`
+    roundResult.innerText = `You lost! ${playerSelection} beats ${computerSelection}!`
   }
 })
 
@@ -145,15 +148,14 @@ scissorsBtn.addEventListener('click', function() {
   const computerSelection = getComputerChoice();
   const playerSelection = "Scissors";
   playRound (playerSelection, computerSelection);
-  checkWinner (playerSelection, computerSelection);
 
   if (checkWinner(playerSelection,computerSelection) == `You Won! ${playerSelection} beats ${computerSelection}!`) {
     playerScoreJs++;
-    roundResult =  `You Won! ${playerSelection} beats ${computerSelection}!`
+    roundResult.innerText =  `You Won! ${playerSelection} beats ${computerSelection}!`
   }
   else if (checkWinner(playerSelection,computerSelection) == `You lost! ${computerSelection} beats ${playerSelection}!`){
     computerScoreJs++;
-    roundResult = `You Won! ${playerSelection} beats ${computerSelection}!`
+    roundResult.innerText = `You lost! ${playerSelection} beats ${computerSelection}!`
   }
 })
  
