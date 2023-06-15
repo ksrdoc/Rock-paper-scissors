@@ -1,6 +1,6 @@
  // Base values
 
- const choice = ["Rock", "Paper", "Scissors"]; //array of choice
+ const choice = ["Rock", "Paper", "Scissors"];
 
  let playerScore = 0;
  let computerScore = 0;
@@ -13,22 +13,6 @@
     return compChoice;
  }
 
- //getPlayerChoice - get the player choice from choice array 
-
- // function getPlayerChoice () {
- //  let validatedInput = false; 
- //  while (validatedInput == false) { 
- //    const playerPrompt = prompt ("Rock, Paper, Scissors");
- //    if (playerPrompt == null){ //while the input is misspelled, ask again for input
- //      continue;
- //    }
- //    const playerPromptCase =playerPrompt.charAt(0).toUpperCase() + playerPrompt.slice(1).toLowerCase(); //case insensitive
- //    if (choice.includes(playerPromptCase)){
- //      validatedInput = true;
- //      return playerPromptCase;
- //     }
- //    }
- //   }
 
  //playRound - function that handles a single round of RPS
 
@@ -51,6 +35,7 @@
      return "computer";
    }
  }
+
  
  //checkWinner - function that returns a string depending on the winning condition
 
@@ -68,47 +53,14 @@
   }
  }
 
-// game function - have to rearrange for who first gets 5 points. ( OLD CONSOLE VERSION)
-//
-//  function game () {
-//  let playerScore = 0; 
-//  let computerScore = 0;
-//  console.log ("Get ready!")
-//  for (let i = 0; i < 5; i++) {
-//    const playerSelection = getPlayerChoice();
-//    const computerSelection = getComputerChoice();
-//    playRound(computerSelection, playerSelection)
-//    console.log(playRound(playerSelection,computerSelection));
-//    console.log(checkWinner(playerSelection,computerSelection));
-//    console.log("----------------");
-//    if (checkWinner(playerSelection,computerSelection) == `You Won! ${playerSelection} beats ${computerSelection}!`) {
-//      playerScore++;
-//    }
-//    else if (checkWinner(playerSelection,computerSelection) == `You lost! ${computerSelection} beats ${playerSelection}!`){
-//      computerScore++;
-//    }
-//  }
-//
-//  console.log ("Game over!")
-//  if (playerScore > computerScore){
-//    console.log ("Player wins!");
-//  }
-//  else if (playerScore < computerScore){
-//    console.log ("Computer wins!");
-//  }
-//  else {
-//    console.log ("Its a tie, nobody won!");
-//  }
-// }
-// 
-//game()
+// game function to check for the winner
 
 function game() {
-  if ( playerScoreJs === 5 ) {
-alert = "You have won the game!"
+  if ( playerScore === 5 ) {
+alert ("You have won the game!");
   }
-  else if ( computerScoreJs === 5) {
-    alert = "You have lost the game"
+  else if ( computerScore === 5) {
+    alert ("You have lost the game");
   }
 }
 
@@ -123,13 +75,10 @@ const roundResult = document.querySelector ('.roundResultText');
 
 
 
-
-
 rockBtn.addEventListener('click', function() {
   const computerSelection = getComputerChoice();
   const playerSelection = 'Rock';
   playRound (playerSelection, computerSelection);
-  game ();
 
   if (checkWinner(playerSelection,computerSelection) == `You Won! ${playerSelection} beats ${computerSelection}!`) {
     playerScore++;
@@ -144,13 +93,15 @@ rockBtn.addEventListener('click', function() {
   else {
     roundResult.innerText = "It's a tie!"
   }
+ game ();
+
 })
 
 paperBtn.addEventListener('click', function() {
   const computerSelection = getComputerChoice();
   const playerSelection = "Paper";
   playRound (playerSelection, computerSelection);
-  game();
+  
 
   if (checkWinner(playerSelection,computerSelection) == `You Won! ${playerSelection} beats ${computerSelection}!`) {
     playerScore++;
@@ -165,13 +116,14 @@ paperBtn.addEventListener('click', function() {
   else {
     roundResult.innerText = "It's a tie!"
   }
+  game();
 })
 
 scissorsBtn.addEventListener('click', function() {
   const computerSelection = getComputerChoice();
   const playerSelection = "Scissors";
   playRound (playerSelection, computerSelection);
-  game();
+ 
 
   if (checkWinner(playerSelection,computerSelection) == `You Won! ${playerSelection} beats ${computerSelection}!`) {
     playerScore++;
@@ -185,6 +137,7 @@ scissorsBtn.addEventListener('click', function() {
   }
   else {
     roundResult.innerText = "It's a tie!"
-  }
+  } 
+  game();
 })
  
