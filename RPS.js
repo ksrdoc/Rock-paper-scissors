@@ -2,6 +2,10 @@
 
  const choice = ["Rock", "Paper", "Scissors"]; //array of choice
 
+ let playerScore = 0;
+ let computerScore = 0;
+
+
  //getComputerChoice - function that picks rock,paper,scissors at random
 
  function getComputerChoice () {
@@ -99,32 +103,43 @@
 // 
 //game()
 
+function game() {
+  if ( playerScoreJs === 5 ) {
+alert = "You have won the game!"
+  }
+  else if ( computerScoreJs === 5) {
+    alert = "You have lost the game"
+  }
+}
 
  // DOM manipulaton
 
 const rockBtn = document.querySelector('#playerRock');
 const paperBtn = document.querySelector ('#playerPaper');
 const scissorsBtn = document.querySelector ('#playerScissors');
-let playerScoreJs = document.querySelector ('#playerCount');
-let computerScoreJs = document.querySelector ('#computerCount');
-let roundResult = document.querySelector ('.roundResultText');
+const playerScoreJs = document.querySelector ('#playerCount');
+const computerScoreJs = document.querySelector ('#computerCount');
+const roundResult = document.querySelector ('.roundResultText');
 
-playerScoreJs == 0;
-computerScoreJs == 0;
+
+
+
 
 rockBtn.addEventListener('click', function() {
   const computerSelection = getComputerChoice();
   const playerSelection = 'Rock';
   playRound (playerSelection, computerSelection);
-
+  game ();
 
   if (checkWinner(playerSelection,computerSelection) == `You Won! ${playerSelection} beats ${computerSelection}!`) {
-    playerScoreJs++;
-    roundResult.innerText =  `You Won! ${playerSelection} beats ${computerSelection}!`
+    playerScore++;
+    roundResult.innerText =  `You Won! ${playerSelection} beats ${computerSelection}!`;
+    playerScoreJs.innerText = `${playerScore}`;
   }
   else if (checkWinner(playerSelection,computerSelection) == `You lost! ${computerSelection} beats ${playerSelection}!`){
-    computerScoreJs++;
-    roundResult.innerText = `You lost! ${playerSelection} beats ${computerSelection}!`
+    computerScore++;
+    roundResult.innerText = `You lost! ${playerSelection} beats ${computerSelection}!`;
+    computerScoreJs.innerText = `${computerScore}`;
   }
   else {
     roundResult.innerText = "It's a tie!"
@@ -135,15 +150,17 @@ paperBtn.addEventListener('click', function() {
   const computerSelection = getComputerChoice();
   const playerSelection = "Paper";
   playRound (playerSelection, computerSelection);
-  
+  game();
 
   if (checkWinner(playerSelection,computerSelection) == `You Won! ${playerSelection} beats ${computerSelection}!`) {
-    playerScoreJs++;
+    playerScore++;
     roundResult.innerText =  `You Won! ${playerSelection} beats ${computerSelection}!`
+    playerScoreJs.innerText = `${playerScore}`;
   }
   else if (checkWinner(playerSelection,computerSelection) == `You lost! ${computerSelection} beats ${playerSelection}!`){
-    computerScoreJs++;
+    computerScore++;
     roundResult.innerText = `You lost! ${playerSelection} beats ${computerSelection}!`
+    computerScoreJs.innerText = `${computerScore}`;
   }
   else {
     roundResult.innerText = "It's a tie!"
@@ -154,27 +171,20 @@ scissorsBtn.addEventListener('click', function() {
   const computerSelection = getComputerChoice();
   const playerSelection = "Scissors";
   playRound (playerSelection, computerSelection);
+  game();
 
   if (checkWinner(playerSelection,computerSelection) == `You Won! ${playerSelection} beats ${computerSelection}!`) {
-    playerScoreJs++;
-    roundResult.innerText =  `You Won! ${playerSelection} beats ${computerSelection}!`
+    playerScore++;
+    roundResult.innerText =  `You Won! ${playerSelection} beats ${computerSelection}!`;
+    playerScoreJs.innerText = `${playerScore}`;
   }
   else if (checkWinner(playerSelection,computerSelection) == `You lost! ${computerSelection} beats ${playerSelection}!`){
-    computerScoreJs++;
-    roundResult.innerText = `You lost! ${playerSelection} beats ${computerSelection}!`
+    computerScore++;
+    roundResult.innerText = `You lost! ${playerSelection} beats ${computerSelection}!`;
+    computerScoreJs.innerText = `${computerScore}`;
   }
   else {
     roundResult.innerText = "It's a tie!"
   }
 })
  
-function game() {
-  if ( playerScoreJs == 5 ) {
-alert = "You have won the game!"
-  }
-  else if ( computerScoreJs == 5) {
-    alert = "You have lost the game"
-  }
-}
-
-game()
