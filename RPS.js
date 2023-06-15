@@ -126,6 +126,9 @@ rockBtn.addEventListener('click', function() {
     computerScoreJs++;
     roundResult.innerText = `You lost! ${playerSelection} beats ${computerSelection}!`
   }
+  else {
+    roundResult.innerText = "It's a tie!"
+  }
 })
 
 paperBtn.addEventListener('click', function() {
@@ -142,6 +145,9 @@ paperBtn.addEventListener('click', function() {
     computerScoreJs++;
     roundResult.innerText = `You lost! ${playerSelection} beats ${computerSelection}!`
   }
+  else {
+    roundResult.innerText = "It's a tie!"
+  }
 })
 
 scissorsBtn.addEventListener('click', function() {
@@ -156,6 +162,9 @@ scissorsBtn.addEventListener('click', function() {
   else if (checkWinner(playerSelection,computerSelection) == `You lost! ${computerSelection} beats ${playerSelection}!`){
     computerScoreJs++;
     roundResult.innerText = `You lost! ${playerSelection} beats ${computerSelection}!`
+  }
+  else {
+    roundResult.innerText = "It's a tie!"
   }
 })
  
