@@ -64,52 +64,106 @@
   }
  }
 
- // game function - have to rearrange for who first gets 5 points.
+// game function - have to rearrange for who first gets 5 points. ( OLD CONSOLE VERSION)
+//
+//  function game () {
+//  let playerScore = 0; 
+//  let computerScore = 0;
+//  console.log ("Get ready!")
+//  for (let i = 0; i < 5; i++) {
+//    const playerSelection = getPlayerChoice();
+//    const computerSelection = getComputerChoice();
+//    playRound(computerSelection, playerSelection)
+//    console.log(playRound(playerSelection,computerSelection));
+//    console.log(checkWinner(playerSelection,computerSelection));
+//    console.log("----------------");
+//    if (checkWinner(playerSelection,computerSelection) == `You Won! ${playerSelection} beats ${computerSelection}!`) {
+//      playerScore++;
+//    }
+//    else if (checkWinner(playerSelection,computerSelection) == `You lost! ${computerSelection} beats ${playerSelection}!`){
+//      computerScore++;
+//    }
+//  }
+//
+//  console.log ("Game over!")
+//  if (playerScore > computerScore){
+//    console.log ("Player wins!");
+//  }
+//  else if (playerScore < computerScore){
+//    console.log ("Computer wins!");
+//  }
+//  else {
+//    console.log ("Its a tie, nobody won!");
+//  }
+// }
+// 
+//game()
 
-  function game () {
-  let playerScore = 0; 
-  let computerScore = 0;
-  console.log ("Get ready!")
-  for (let i = 0; i < 5; i++) {
-    const playerSelection = getPlayerChoice();
-    const computerSelection = getComputerChoice();
-    playRound(computerSelection, playerSelection)
-    console.log(playRound(playerSelection,computerSelection));
-    console.log(checkWinner(playerSelection,computerSelection));
-    console.log("----------------");
-    if (checkWinner(playerSelection,computerSelection) == `You Won! ${playerSelection} beats ${computerSelection}!`) {
-      playerScore++;
-    }
-    else if (checkWinner(playerSelection,computerSelection) == `You lost! ${computerSelection} beats ${playerSelection}!`){
-      computerScore++;
-    }
-  }
-
-  console.log ("Game over!")
-  if (playerScore > computerScore){
-    console.log ("Player wins!");
-  }
-  else if (playerScore < computerScore){
-    console.log ("Computer wins!");
-  }
-  else {
-    console.log ("Its a tie, nobody won!");
-  }
- }
 
  // DOM manipulaton
 
- const playerC = document.querySelector ('#playerCount');
- const computerC = document.querySelector ('#computerCount');
- const roundResult = document.querySelector ('.roundResultText');
- const playerChoiceImg = document.querySelector ('.playerChoiceImage');
- const playerChoiceTxt = document.querySelector ('.playerChoiceText');
- const computerChoiceImg = document.querySelector ('.computerChoiceImage');
- const computerChoiceTxt = document.querySelector ('.computerChoiceText');
- const playerRock = document.querySelector ('#playerRock');
- const playerPaper = document.querySelector ('#playerPaper');
- const playerScissors = document.querySelector ('#playerScissors');
- 
+const rockBtn = document.querySelector('#playerRock');
+const paperBtn = document.querySelector ('#playerPaper');
+const scissorsBtn = document.querySelector ('#playerScissors');
+let playerScoreJs = document.querySelector ('#playerCount');
+let computerScoreJs = document.querySelector ('#computerCount');
+let roundResult = document.querySelector ('.roundResultText');
 
+rockBtn.addEventListener('click', function() {
+  const computerSelection = getComputerChoice();
+  const playerSelection = "Rock";
+  playRound (playerSelection, computerSelection);
+  checkWinner (playerSelection, computerSelection);
+
+  if (checkWinner(playerSelection,computerSelection) == `You Won! ${playerSelection} beats ${computerSelection}!`) {
+    playerScoreJs++;
+    roundResult =  `You Won! ${playerSelection} beats ${computerSelection}!`
+  }
+  else if (checkWinner(playerSelection,computerSelection) == `You lost! ${computerSelection} beats ${playerSelection}!`){
+    computerScoreJs++;
+    roundResult = `You Won! ${playerSelection} beats ${computerSelection}!`
+  }
+})
+
+paperBtn.addEventListener('click', function() {
+  const computerSelection = getComputerChoice();
+  const playerSelection = "Paper";
+  playRound (playerSelection, computerSelection);
+  checkWinner (playerSelection, computerSelection);
+
+  if (checkWinner(playerSelection,computerSelection) == `You Won! ${playerSelection} beats ${computerSelection}!`) {
+    playerScoreJs++;
+    roundResult =  `You Won! ${playerSelection} beats ${computerSelection}!`
+  }
+  else if (checkWinner(playerSelection,computerSelection) == `You lost! ${computerSelection} beats ${playerSelection}!`){
+    computerScoreJs++;
+    roundResult = `You Won! ${playerSelection} beats ${computerSelection}!`
+  }
+})
+
+scissorsBtn.addEventListener('click', function() {
+  const computerSelection = getComputerChoice();
+  const playerSelection = "Scissors";
+  playRound (playerSelection, computerSelection);
+  checkWinner (playerSelection, computerSelection);
+
+  if (checkWinner(playerSelection,computerSelection) == `You Won! ${playerSelection} beats ${computerSelection}!`) {
+    playerScoreJs++;
+    roundResult =  `You Won! ${playerSelection} beats ${computerSelection}!`
+  }
+  else if (checkWinner(playerSelection,computerSelection) == `You lost! ${computerSelection} beats ${playerSelection}!`){
+    computerScoreJs++;
+    roundResult = `You Won! ${playerSelection} beats ${computerSelection}!`
+  }
+})
+ 
+function game() {
+  if ( playerScoreJs == 5 ) {
+alert = "You have won the game!"
+  }
+  else if ( computerScoreJs == 5) {
+    alert = "You have lost the game"
+  }
+}
 
 game()
